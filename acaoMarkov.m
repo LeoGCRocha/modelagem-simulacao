@@ -1,17 +1,15 @@
-%u0 = [0.7, 0.1, 0.1, 0.1];
-%T = [0.4, 0.4, 0.1, 0.1; 0.9, 0.1, 0, 0; 0.1, 0.1, 0.4, 0.4; 0 0 0.5 0.5];
-%T = [0, 1, 0, 0; 0, 0, 1, 0; 0, 0, 0, 1; 1 0 0 0];
-
-tmax = 365
-rmax = 20
-u0=50
-et = zeros(tmax,rmax);
-for r=1:1:rmax
-  u = u0;
-  for t=1:1:tmax
-    u = u+normrnd(0, 1);
-    et(t,r)=u;
-  endfor
-endfor
+t = 0; % tempo inicial
+uInicial = 50; % preco da acao no instante inicial
+tempo_total = 365; % em dias, portanto representa um ano.
+rmax = 20; % representa o número de simualacoes a cada ano
+et = zeros(tempo_total, rmax);
+% variavel rmax vezes por simulacao
+for i = 1:rmax
+    u = uInicial
+    % 20 simulacoes em um ano
+    for j = 1:tempo_total
+        u  = u + normrnd(0,1);
+        et(j,i) = u;
+    endfor
+end
 plot(et);
-
