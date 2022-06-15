@@ -30,5 +30,5 @@ endfor
 if vendas_com_sucesso == 0
    disp("não houveram vendas com sucesso");
 else
-   vendas_com_sucesso / replicacoes
+   (vendas_com_sucesso / replicacoes)*100
 endif
